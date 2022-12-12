@@ -1,0 +1,18 @@
+importFrom("methods", "is", "new")
+importFrom("grDevices", "terrain.colors")
+importFrom("graphics", "axis", "image", "layout", "legend", "par",
+           "plot", "points")
+importFrom("stats", "model.matrix", "runif")
+
+export(
+  genelist.rda,
+  plot.rdacv,
+  predict.rda,
+  rda,
+  rda.cv)
+S3method(print, rda)
+S3method(print, rdacv)
+
+S3method(plot, rdacv)
+S3method(predict, rda)
+

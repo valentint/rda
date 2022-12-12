@@ -1,0 +1,16 @@
+Package: rda
+Version: 1.2-0
+Title: Shrunken Centroids Regularized Discriminant Analysis
+Author: Yaqian Guo <yaqiang@stat.stanford.edu> Trevor Hastie
+        <hastie@stat.stanford.edu> Robert Tibshirani
+        <tibs@stanford.edu>
+Maintainer: Valentin Todorov <valentin@todorov.at>
+Depends: R (>= 2.10)
+Imports: methods
+Description: Shrunken Centroids Regularized Discriminant Analysis for
+        the classification purpose in high dimensional data.
+License: GPL (>= 2)
+Packaged: 2018-07-21 16:59:24 UTC; hornik
+Repository: CRAN
+Date/Publication: 2018-07-21 17:12:01 UTC
+NeedsCompilation: no
