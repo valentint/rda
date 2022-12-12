@@ -9,7 +9,7 @@ The `rda` package was removed from CRAN (The Comprehensive R Archive
 Network) and is currently archived. As soon as it is back on CRAN, we
 will inform you that it is possible to install it from CRAN:
 
-## install.packages(“rda”)
+    ##    install.packages("rda")
 
 ## Building from source
 
