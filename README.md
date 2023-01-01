@@ -7,9 +7,11 @@
 
 [![CRAN
 version](https://www.r-pkg.org/badges/version/rda)](https://cran.r-project.org/package=rda)
-[![R-CMD-check](https://github.com/valentint/rda/workflows/R-CMD-check/badge.svg)](https://github.com/valentint/rda/actions)
 [![downloads](https://cranlogs.r-pkg.org/badges/rda)](https://cran.r-project.org/package=rda)
 [![downloads](https://cranlogs.r-pkg.org/badges/grand-total/rda)](https://cran.r-project.org/package=rda)
+[![R-CMD-check](https://github.com/valentint/rda/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/valentint/rda/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/valentint/rda/branch/main/graph/badge.svg)](https://app.codecov.io/gh/valentint/rda?branch=main)
 [![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 <!-- badges: end -->
 
