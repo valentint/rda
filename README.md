@@ -8,8 +8,6 @@
 [![CRAN
 version](https://www.r-pkg.org/badges/version/rda)](https://cran.r-project.org/package=rda)
 [![R-CMD-check](https://github.com/valentint/rda/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/valentint/rda/actions/workflows/R-CMD-check.yaml)
-[![Codecov test
-coverage](https://codecov.io/gh/valentint/rda/branch/main/graph/badge.svg)](https://app.codecov.io/gh/valentint/rda?branch=main)
 [![downloads](https://cranlogs.r-pkg.org/badges/rda)](https://cran.r-project.org/package=rda)
 [![downloads](https://cranlogs.r-pkg.org/badges/grand-total/rda)](https://cran.r-project.org/package=rda)
 [![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
@@ -17,11 +15,12 @@ coverage](https://codecov.io/gh/valentint/rda/branch/main/graph/badge.svg)](http
 
 ## Installation
 
-The `rda` package was removed from CRAN (The Comprehensive R Archive
-Network) and is currently archived. As soon as it is back on CRAN, we
-will inform you that it is possible to install it from CRAN:
+The `rda` package is on CRAN (The Comprehensive R Archive Network) and
+the latest release can be easily installed using the command:
 
-    ##    install.packages("rda")
+        install.packages("rda")
+        library(rda)
+        
 
 ## Building from source
 
