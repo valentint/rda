@@ -70,9 +70,10 @@ the average result from cross-validation.}
   \item{n}{The sample size of the training data set.}
 }
 \references{
-Guo, Y. et al. (2004) \emph{Regularized Discriminant Analysis and Its
-Application in Microarrays}, Technical Report, Department of Statistics,
-Stanford University.
+    Y. Guo, T. Hastie, R. Tibshirani, (2006).
+    Regularized linear discriminant analysis and its application in microarrays, 
+    \emph{Biostatistics} \bold{8} pp. 86--100.
+    \doi{10.1093/biostatistics/kxj035}.
 }
 \author{Yaqian Guo, Trevor Hastie and Robert Tibshirani}
 \seealso{
@@ -81,7 +82,7 @@ Also see \code{\link{rda}} and \code{\link{predict.rda}}.
 \examples{
 
 ## These examples will take too long and R CMD check will complain ...
-\dontrun{
+\donttest{
     data(colon)
     colon.x <- t(colon.x)
     fit <- rda(colon.x, colon.y)

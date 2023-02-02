@@ -22,8 +22,9 @@ Embryonal Tumor Outcome Based on Gene Expression}. Nature, Vol 415,
 p436-442.
 }
 \references{
-Guo, Y. et al. (2004) \emph{Regularized Discriminant Analysis and Its
-Application in Microarrays}, Technical Report, Department of Statistics,
-Stanford University.
+    Y. Guo, T. Hastie, R. Tibshirani, (2006).
+    Regularized linear discriminant analysis and its application in microarrays, 
+    \emph{Biostatistics} \bold{8} pp. 86--100.
+    \doi{10.1093/biostatistics/kxj035}.
 }
 \keyword{datasets}

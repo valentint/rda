@@ -18,7 +18,8 @@ plot.rdacv <- function(x, type=c("both", "error", "gene"),
       tmpgene <- x$ngene
       dimnames(tmpgene) <- list(x$alpha, x$delta)
 
-      par(ask=TRUE)
+      oldpar <- par(ask=TRUE)
+      on.exit(par(oldpar))
       rda.plotmat(tmperr, se=TRUE,
                   main=paste("Heatmap of ", x$nfold,
                              "-fold CV Error"),

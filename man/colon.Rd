@@ -22,8 +22,9 @@ Oligonucleotide Arrays}. PNAS, Vol 96, p6745-6750. The data set is
 available at \url{http://microarray.princeton.edu/oncology/}.
 }
 \references{
-Guo, Y. et al. (2004) \emph{Regularized Discriminant Analysis and Its
-Application in Microarrays}, Technical Report, Department of Statistics,
-Stanford University.
+    Y. Guo, T. Hastie, R. Tibshirani, (2006).
+    Regularized linear discriminant analysis and its application in microarrays, 
+    \emph{Biostatistics} \bold{8} pp. 86--100.
+    \doi{10.1093/biostatistics/kxj035}.
 }
 \keyword{datasets}

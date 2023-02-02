@@ -8,7 +8,7 @@ microarray expression data.
 \usage{
 rda(x, y, xnew=NULL, ynew=NULL, prior=table(y)/length(y),
     alpha=seq(0, 0.99, len=10), delta=seq(0, 3, len=10), 
-    regularization="S", genelist=FALSE, trace=FALSE)
+    regularization=c("S", "R"), genelist=FALSE, trace=FALSE)
 }
 \arguments{
 \item{x}{The training data set. It must be a numerical matrix.
@@ -90,10 +90,12 @@ possible if either alpha or delta is of length 1.}
   \item{reg}{The type of regularization used in calculation.}
 }
 \references{
-Guo, Y. et al. (2004) \emph{Regularized Discriminant Analysis and Its
-Application in Microarrays}, Technical Report, Department of Statistics,
-Stanford University.
+    Y. Guo, T. Hastie, R. Tibshirani, (2006).
+    Regularized linear discriminant analysis and its application in microarrays, 
+    \emph{Biostatistics} \bold{8} pp. 86--100.
+    \doi{10.1093/biostatistics/kxj035}.
 }
+
 \author{Yaqian Guo, Trevor Hastie and Robert Tibshirani}
 \seealso{
 \code{\link{rda.cv}} and \code{\link{predict.rda}}.

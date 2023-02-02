@@ -1,0 +1,107 @@
+
+R Under development (unstable) (2022-07-22 r82614 ucrt) -- "Unsuffered Consequences"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library(rda)
+> 
+> ## Test balanced.folds
+> x <- rda:::balanced.folds(iris$Species)
+> table(iris$Species[x[[1]]])
+
+    setosa versicolor  virginica 
+         5          5          5 
+> table(iris$Species[x[[2]]])
+
+    setosa versicolor  virginica 
+         5          5          5 
+> x <- rda:::balanced.folds(iris$Species, nfolds=5)
+> table(iris$Species[x[[1]]])
+
+    setosa versicolor  virginica 
+        10         10         10 
+> table(iris$Species[x[[2]]]) 
+
+    setosa versicolor  virginica 
+        10         10         10 
+> 
+> data(colon)
+> colon.x <- t(colon.x)
+> (fit <- rda(colon.x, colon.y, regularization="S"))
+Call:
+rda(x = colon.x, y = colon.y, regularization = "S")
+$nonzero
+      delta
+alpha     0 0.333 0.667    1 1.333 1.667    2 2.333 2.667    3
+  0    2000   132    12    0     0     0    0     0     0    0
+  0.11 2000    23     0    0     0     0    0     0     0    0
+  0.22 2000    21     0    0     0     0    0     0     0    0
+  0.33 2000    33     0    0     0     0    0     0     0    0
+  0.44 2000    56     2    0     0     0    0     0     0    0
+  0.55 2000   119     7    0     0     0    0     0     0    0
+  0.66 2000   252    27    2     0     0    0     0     0    0
+  0.77 2000   531   107   24     5     0    0     0     0    0
+  0.88 2000  1069   486  217   100    44   16     9     3    1
+  0.99 2000  1930  1858 1780  1695  1612 1524  1431  1354 1276
+
+$errors
+      delta
+alpha  0 0.333 0.667  1 1.333 1.667  2 2.333 2.667  3
+  0    7     7     8 22    22    22 22    22    22 22
+  0.11 4     8    22 22    22    22 22    22    22 22
+  0.22 0     8    22 22    22    22 22    22    22 22
+  0.33 0     2    22 22    22    22 22    22    22 22
+  0.44 0     1    22 22    22    22 22    22    22 22
+  0.55 0     1    21 22    22    22 22    22    22 22
+  0.66 0     1     2 22    22    22 22    22    22 22
+  0.77 0     0     1  3    20    22 22    22    22 22
+  0.88 0     0     1  1     1     2  5     8    19 22
+  0.99 0     0     0  0     0     0  0     0     0  0
+
+> (fit <- rda(colon.x, colon.y, regularization="R"))
+Call:
+rda(x = colon.x, y = colon.y, regularization = "R")
+$nonzero
+      delta
+alpha     0 0.333 0.667    1 1.333 1.667    2 2.333 2.667    3
+  0    2000  1304   743  384   210    86   31     9     4    2
+  0.11 2000   778   209   47     9     2    0     0     0    0
+  0.22 2000   854   291   74    21     4    1     0     0    0
+  0.33 2000   969   394  133    41    13    3     0     0    0
+  0.44 2000  1108   531  232    84    32   15     3     1    0
+  0.55 2000  1276   714  386   184    83   39    22     6    3
+  0.66 2000  1439   944  609   386   224  113    69    37   25
+  0.77 2000  1631  1251  929   692   502  375   264   171  109
+  0.88 2000  1821  1615 1410  1224  1051  893   778   655  552
+  0.99 2000  1980  1971 1961  1945  1928 1909  1894  1875 1864
+
+$errors
+      delta
+alpha  0 0.333 0.667 1 1.333 1.667  2 2.333 2.667  3
+  0    7     7     7 7     7     6  6     8    11 16
+  0.11 0     0     0 0    12    22 22    22    22 22
+  0.22 0     0     0 0     6    22 22    22    22 22
+  0.33 0     0     0 0     1    11 22    22    22 22
+  0.44 0     0     0 0     0     1 12    22    22 22
+  0.55 0     0     0 0     0     0  1     2    16 22
+  0.66 0     0     0 0     0     0  0     0     1  2
+  0.77 0     0     0 0     0     0  0     0     0  0
+  0.88 0     0     0 0     0     0  0     0     1  3
+  0.99 0     0     0 0     0     0  0     0     0  0
+
+> 
+> proc.time()
+   user  system elapsed 
+   1.65    0.23    1.89 
