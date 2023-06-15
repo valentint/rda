@@ -39,6 +39,7 @@ This is a basic example which shows you if the package is properly
 installed:
 
 ``` r
+
 library(rda)
 data(colon)
 colon.x <- t(colon.x)
