@@ -1,7 +1,7 @@
 
-R Under development (unstable) (2022-07-22 r82614 ucrt) -- "Unsuffered Consequences"
-Copyright (C) 2022 The R Foundation for Statistical Computing
-Platform: x86_64-w64-mingw32/x64 (64-bit)
+R Under development (unstable) (2024-10-01 r87205 ucrt) -- "Unsuffered Consequences"
+Copyright (C) 2024 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -102,6 +102,129 @@ alpha  0 0.333 0.667 1 1.333 1.667  2 2.333 2.667  3
   0.99 0     0     0 0     0     0  0     0     0  0
 
 > 
+> set.seed(1)
+> fit <- rda(colon.x, colon.y)
+> try(fit.cv <- rda.cv(x=colon.x, y=colon.y))
+Error in rda.cv(x = colon.x, y = colon.y) : 
+  An rda object must be supplied.
+> (fit.cv <- rda.cv(fit, x=colon.x, y=colon.y))
+Fold 1 :
+Fold 2 :
+Fold 3 :
+Fold 4 :
+Fold 5 :
+Fold 6 :
+Fold 7 :
+Fold 8 :
+Fold 9 :
+Fold 10 :
+Call:
+rda.cv(fit = fit, x = colon.x, y = colon.y)
+$nonzero
+      delta
+alpha     0 0.333 0.667    1 1.333 1.667    2 2.333 2.667    3
+  0    2000   136    14    0     0     0    0     0     0    0
+  0.11 2000    24     0    0     0     0    0     0     0    0
+  0.22 2000    26     0    0     0     0    0     0     0    0
+  0.33 2000    43     1    0     0     0    0     0     0    0
+  0.44 2000    74     3    0     0     0    0     0     0    0
+  0.55 2000   144     9    0     0     0    0     0     0    0
+  0.66 2000   297    34    4     0     0    0     0     0    0
+  0.77 2000   585   132   33     8     2    0     0     0    0
+  0.88 2000  1119   548  257   116    55   27    12     6    3
+  0.99 2000  1919  1839 1767  1686  1608 1528  1455  1386 1316
+
+$cv.err
+      delta
+alpha  0 0.333 0.667  1 1.333 1.667  2 2.333 2.667  3
+  0    8     7     9 22    22    22 22    22    22 22
+  0.11 8    11    22 22    22    22 22    22    22 22
+  0.22 7    13    22 22    22    22 22    22    22 22
+  0.33 6    11    22 22    22    22 22    22    22 22
+  0.44 7    11    24 22    22    22 22    22    22 22
+  0.55 7     9    19 22    22    22 22    22    22 22
+  0.66 8     9    13 24    23    22 22    22    22 22
+  0.77 8     8    10 15    20    24 23    22    22 22
+  0.88 8     7    10 16    16    17 19    22    22 24
+  0.99 9     9     9  9     9     8  9     9    10 11
+
+> fit.cv <- rda.cv(fit, x=colon.x, y=colon.y, folds=rda:::balanced.folds(colon.y))
+Fold 1 :
+Fold 2 :
+Fold 3 :
+Fold 4 :
+Fold 5 :
+Fold 6 :
+Fold 7 :
+Fold 8 :
+Fold 9 :
+Fold 10 :
+> try(plot.rdacv(1))
+Error in plot.rdacv(1) : You must supply a cross-validation object.
+> plot.rdacv(fit.cv, type="both")
+$one.se.pos
+     alpha delta
+0.99    10    10
+
+$min.cv.pos
+     alpha delta
+0.11     2     1
+0.22     3     1
+0.33     4     1
+0.44     5     1
+0        1     2
+0.88     9     2
+0.99    10     7
+
+> plot.rdacv(fit.cv, type="gene")
+$one.se.pos
+     alpha delta
+0.99    10    10
+
+$min.cv.pos
+     alpha delta
+0.11     2     1
+0.22     3     1
+0.33     4     1
+0.44     5     1
+0        1     2
+0.88     9     2
+0.99    10     7
+
+> plot.rdacv(fit.cv, type="error")
+$one.se.pos
+     alpha delta
+0.99    10    10
+
+$min.cv.pos
+     alpha delta
+0.11     2     1
+0.22     3     1
+0.33     4     1
+0.44     5     1
+0        1     2
+0.88     9     2
+0.99    10     7
+
+> 
+> ## divide the data set into a training set and a test
+> ## set using a ratio of 2:1.
+> tr.index <- sample(1:62, 40)
+> fit <- rda(colon.x[, tr.index], colon.y[tr.index])
+> 
+> ## predict the class labels of the test set at alpha=0.1
+> ## and delta=0.5
+> ynew <- predict(fit, x=colon.x[, tr.index], y=colon.y[tr.index], 
++                 xnew=colon.x[, -tr.index], alpha=0.1, delta=0.5)
+> 
+> try(ynew <- rda:::predict.rda())
+Error in rda:::predict.rda() : A rda fit object must be supplied.
+> try(ynew <- predict(fit))
+Error in predict.rda(fit) : A new data to predict must be supplied.
+> try(ynew <- predict(fit, x=colon.x[, tr.index], y=colon.y[tr.index], xnew=colon.x[, -tr.index], type="class"))
+> try(ynew <- predict(fit, x=colon.x[, tr.index], y=colon.y[tr.index], xnew=colon.x[, -tr.index], type="posterior"))
+> try(ynew <- predict(fit, x=colon.x[, tr.index], y=colon.y[tr.index], xnew=colon.x[, -tr.index], type="nonzero"))
+> 
 > proc.time()
    user  system elapsed 
-   1.65    0.23    1.89 
+  11.59    0.35   12.14 
