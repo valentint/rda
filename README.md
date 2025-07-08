@@ -13,6 +13,8 @@ coverage](https://codecov.io/gh/valentint/rda/branch/main/graph/badge.svg)](http
 [![downloads](https://cranlogs.r-pkg.org/badges/rda)](https://cran.r-project.org/package=rda)
 [![downloads](https://cranlogs.r-pkg.org/badges/grand-total/rda)](https://cran.r-project.org/package=rda)
 [![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
+[![Codecov test
+coverage](https://codecov.io/gh/valentint/rda/graph/badge.svg)](https://app.codecov.io/gh/valentint/rda)
 <!-- badges: end -->
 
 ## Installation
