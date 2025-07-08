@@ -1,6 +1,6 @@
 Package: rda
 Version: 1.2-2
-VersionNote: Released 1.2-7 on 2023-02-02 on CRAN
+VersionNote: Released 1.2-1 on 2023-02-02 on CRAN
 Authors@R: c(person("Yaqian", "Guo", role = "aut", email = "yaqiang@stat.stanford.edu")
          , person("Trevor", "Hastie", role = "aut", email = "hastie@stat.stanford.edu")
          , person("Robert", "Tibshirani", role = "aut", email = "tibs@stanford.edu")
